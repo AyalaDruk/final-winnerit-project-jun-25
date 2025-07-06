@@ -3,9 +3,10 @@ import allure
 
 class LoginPage:
    def __init__(self,page:Page):
+       self.__password_filed = None
        self.__page=page
-       self.__username_filed=page.locator("#user-name").describe("Username Field")
-       self.__password_filed=page.locator('[name="password"]').describe("Password Field")
+       self.__username_field=page.locator("#user-name").describe("Username Field")
+       self.__password_field=page.locator('[name="password"]').describe("Password Field")
        self.__login_button=page.locator("[data-test=login-button]")
        self._error_massage=page.locator("[data-test=\"error\"]").describe("Login Error Message")
        self.__login_credentials = page.locator("[data-test=\"login-credentials\"]").describe("Login Credentials Section")
@@ -21,7 +22,7 @@ class LoginPage:
        self.__page.goto(url)
 
    def type_username(self,username:str):
-       self.__username_filed.press_sequentially(username , delay=100)
+       self.__username_field.press_sequentially(username , delay=100)
 
    # # Assertions
 
@@ -31,6 +32,8 @@ class LoginPage:
    def expect_login_credentials_visible(self):
        expect(self.__login_credentials).to_be_visible()
 
+   def expect_url_to_be(self,expected_url: str):
+       expect(self.__page).to_have_url(expected_url)
 
 
 

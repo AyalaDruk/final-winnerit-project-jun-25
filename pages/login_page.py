@@ -13,27 +13,34 @@ class LoginPage:
 
    # # Methods
    def click_login_button(self):
-       self.__login_button.click()
+       with allure.step("Login button click"):
+        self.__login_button.click()
 
    def fill_password(self,password:str):
-       self.__password_field.fill(password)
+       with allure.step(f"Typing '{password}' into password field"):
+        self.__password_field.fill(password)
 
    def navigate(self,url="https://www.saucedemo.com/"):
-       self.__page.goto(url)
+       with allure.step(f"Navigating to url: '{url}'"):
+        self.__page.goto(url)
 
    def type_username(self,username:str):
-       self.__username_field.press_sequentially(username , delay=100)
+       with allure.step(f"Typing '{username}' into username field"):
+        self.__username_field.press_sequentially(username , delay=100)
 
    # # Assertions
 
    def expect_error_message(self,expected_text:str):
-       expect(self._error_massage).to_contain_text(expected_text)
+       with allure.step(f"Expecting error message to contain: '{expected_text}'"):
+        expect(self._error_massage).to_contain_text(expected_text)
 
    def expect_login_credentials_visible(self):
-       expect(self.__login_credentials).to_be_visible()
+       with allure.step("Expecting login credentials section to be visible"):
+        expect(self.__login_credentials).to_be_visible()
 
    def expect_url_to_be(self,expected_url: str):
-       expect(self.__page).to_have_url(expected_url)
+       with allure.step(f"expected url to be: '{expected_url}'"):
+        expect(self.__page).to_have_url(expected_url)
 
 
 

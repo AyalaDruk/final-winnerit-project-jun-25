@@ -16,7 +16,7 @@ class LoginPage:
        self.__login_button.click()
 
    def fill_password(self,password:str):
-       self.__password_filed.fill(password)
+       self.__password_field.fill(password)
 
    def navigate(self,url="https://www.saucedemo.com/"):
        self.__page.goto(url)

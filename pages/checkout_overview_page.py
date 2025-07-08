@@ -8,8 +8,8 @@ class CheckoutOverviewPage(BasePage):
 
     def __init__(self, page: Page):
         super().__init__(page)
-        self.__overview_header = page.locator(".title").describe("Checkout Overview Header")
-        self.__finish_button = page.locator("[data-test='finish']").describe("Finish Button")
+        self.__overview_header = self._page.locator(".title").describe("Checkout Overview Header")
+        self.__finish_button = self._page.locator("[data-test='finish']").describe("Finish Button")
 
     # Verify that the Checkout Overview page is displayed by checking the header text
     def expect_overview_page_loaded(self):

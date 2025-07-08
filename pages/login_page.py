@@ -8,11 +8,11 @@ class LoginPage(BasePage):
 
     def __init__(self, page: Page):
         super().__init__(page)
-        self.__username_field = page.locator("#user-name").describe("Username Field")
-        self.__password_field = page.locator('[name="password"]').describe("Password Field")
-        self.__login_button = page.locator("[data-test=login-button]")
-        self._error_massage = page.locator("[data-test=\"error\"]").describe("Login Error Message")
-        self.__login_credentials = page.locator("[data-test=\"login-credentials\"]").describe(
+        self.__username_field = self._page.locator("#user-name").describe("Username Field")
+        self.__password_field = self._page.locator('[name="password"]').describe("Password Field")
+        self.__login_button = self._page.locator("[data-test=login-button]")
+        self._error_massage = self._page.locator("[data-test=\"error\"]").describe("Login Error Message")
+        self.__login_credentials = self._page.locator("[data-test=\"login-credentials\"]").describe(
             "Login Credentials Section")
 
     # # Methods

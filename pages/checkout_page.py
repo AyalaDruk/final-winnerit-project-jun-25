@@ -7,10 +7,10 @@ class CheckoutPage(BasePage):
 
     def __init__(self, page: Page):
         super().__init__(page)
-        self.__first_name_field = self._page.locator("[data-test='firstName']").describe("First Name Field")
-        self.__last_name_field = self._page.locator("[data-test='lastName']").describe("Last Name Field")
-        self.__postal_code_field = self._page.locator("[data-test='postalCode']").describe("Postal Code Field")
-        self.__continue_button = self._page.locator("[data-test='continue']").describe("Continue Button")
+        self.__first_name_field = self.page.locator("[data-test='firstName']").describe("First Name Field")
+        self.__last_name_field = self.page.locator("[data-test='lastName']").describe("Last Name Field")
+        self.__postal_code_field = self.page.locator("[data-test='postalCode']").describe("Postal Code Field")
+        self.__continue_button = self.page.locator("[data-test='continue']").describe("Continue Button")
 
     # Fill in the First Name, Last Name, and Postal Code fields on the Checkout page.
     def fill_checkout_information(self, first_name: str, last_name: str, postal_code: str):

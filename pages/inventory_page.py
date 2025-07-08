@@ -6,13 +6,13 @@ import allure
 class InventoryPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
-        self.__cart_badge = self._page.locator("[data-test='shopping-cart-badge']").describe("Cart Badge")
-        self.__cart_link = self._page.locator("[data-test='shopping-cart-link']").describe("Cart Link")
+        self.__cart_badge = self.page.locator("[data-test='shopping-cart-badge']").describe("Cart Badge")
+        self.__cart_link = self.page.locator("[data-test='shopping-cart-link']").describe("Cart Link")
 
     # Add a product to the cart based on its product ID
     def add_product_to_cart(self, product_id: str):
         with allure.step(f"Add product '{product_id}' to the cart"):
-            product_locator = self._page.locator(f'[data-test="add-to-cart-{product_id}"]')
+            product_locator = self.page.locator(f'[data-test="add-to-cart-{product_id}"]')
             self.click_element(product_locator)
 
     # Navigate to the Cart Page by clicking on the cart link

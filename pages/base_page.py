@@ -6,12 +6,12 @@ import allure
 class BasePage:
 
     def __init__(self, page: Page):
-        self._page = page  # 🔒 Protected (accessible by child classes)
+        self.page = page
 
 
     def navigate_to(self, url: str):
        with allure.step(f"Navigate to '{url}'"):
-         self._page.goto(url)
+         self.page.goto(url)
 
 
     def expect_url(self, expected_url: str):

@@ -8,10 +8,10 @@ class CheckoutCompletePage(BasePage):
 
     def __init__(self, page: Page):
         super().__init__(page)
-        self.__complete_header = self._page.locator(".complete-header").describe("Thank You Header")
-        self.__back_home_button = self._page.locator("[data-test='back-to-products']").describe("Back Home Button")
-        self.__menu_button = self._page.locator("#react-burger-menu-btn").describe("Menu Button")
-        self.__logout_link = self._page.locator("#logout_sidebar_link").describe("Logout Link")
+        self.__complete_header = self.page.locator(".complete-header").describe("Thank You Header")
+        self.__back_home_button = self.page.locator("[data-test='back-to-products']").describe("Back Home Button")
+        self.__menu_button = self.page.locator("#react-burger-menu-btn").describe("Menu Button")
+        self.__logout_link = self.page.locator("#logout_sidebar_link").describe("Logout Link")
 
     # Verify that the Thank You message is displayed after completing the order.
     def expect_order_complete_message(self):

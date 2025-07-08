@@ -8,10 +8,10 @@ class CartPage(BasePage):
 
     def __init__(self, page: Page):
         super().__init__(page)
-        self.__cart_items = self._page.locator(".cart_item").describe("Cart Items List")
-        self.__checkout_button = self._page.locator("[data-test='checkout']").describe("Checkout Button")
-        self.__item_price = self._page.locator(".inventory_item_price").describe("Item Price")
-        self.__sub_total = self._page.locator(".summary_subtotal_label").describe("Subtotal Label")
+        self.__cart_items = self.page.locator(".cart_item").describe("Cart Items List")
+        self.__checkout_button = self.page.locator("[data-test='checkout']").describe("Checkout Button")
+        self.__item_price = self.page.locator(".inventory_item_price").describe("Item Price")
+        self.__sub_total = self.page.locator(".summary_subtotal_label").describe("Subtotal Label")
 
     # Verify that a specific product is present in the cart
     def expect_product_in_cart(self, product_name: str):

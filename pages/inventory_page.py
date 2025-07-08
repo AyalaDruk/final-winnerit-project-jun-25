@@ -17,4 +17,4 @@ class InventoryPage:
         self.__cart_link.click()
 
     def expect_cart_badge_count(self, expected_count: int):
-       expect(self.__cart_badge).to_contain_text(expected_count)
+       expect(self.__cart_badge).to_contain_text(str(expected_count))

@@ -4,6 +4,7 @@ from pages.base_page import BasePage
 
 
 class CartPage(BasePage):
+    URL = "https://www.saucedemo.com/cart.html"
     def __init__(self, page: Page):
         super().__init__(page)
         self.__cart_items = page.locator(".cart_item").describe("Cart Items List")

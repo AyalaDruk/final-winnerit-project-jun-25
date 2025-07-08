@@ -1,22 +1,26 @@
+import allure
 from playwright.sync_api import Page, expect
 
 
 class CartPage:
     def __init__(self, page: Page):
         self.__page = page
-        self.__cart_items = page.locator(".cart_item")
-        self.__checkout_button = page.locator("[data-test='checkout']")
-        self.__item_price = page.locator(".inventory_item_price")
-        self.__sub_total=page.locator(".summary_subtotal_label")
+        self.__cart_items = page.locator(".cart_item").describe("Cart Items List")
+        self.__checkout_button = page.locator("[data-test='checkout']").describe("Checkout Button")
+        self.__item_price = page.locator(".inventory_item_price").describe("Item Price")
+        self.__sub_total=page.locator(".summary_subtotal_label").describe("Subtotal Label")
 
-
+     #Verify that a specific product is present in the cart
     def expect_product_in_cart(self, product_name: str):
-        expect(self.__cart_items).to_contain_text(product_name)
-
+        with allure.step(f"Verify that product '{product_name}' exists in the cart"):
+          expect(self.__cart_items).to_contain_text(product_name)
+    #Click the Checkout button to proceed to the checkout flow.
     def proceed_to_checkout(self):
-        self.__checkout_button.click()
-
+        with allure.step("Click on 'Checkout' button"):
+          self.__checkout_button.click()
+    #Check if the sum of all individual item prices matches the subtotal displayed on the cart page.
     def verify_cart_subtotal_simple(self):
+       with allure.step("Verify that subtotal matches the sum of all item prices"):
         # Get all prices as text
         prices_text = self.__item_price.all_text_contents()
         # Convert prices to float and calculate total
@@ -28,5 +32,6 @@ class CartPage:
         assert total_from_items == subtotal_displayed, \
         f" Subtotal mismatch! Calculated: ${total_from_items:.2f}, Displayed: ${subtotal_displayed}"
         print(f" Subtotal verified successfully: ${total_from_items}")
+
 
 

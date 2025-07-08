@@ -1,11 +1,13 @@
 import allure
 from playwright.sync_api import Page, expect
+from pages.base_page import BasePage
 
 
-class CheckoutCompletePage:
+class CheckoutCompletePage(BasePage):
+    URL = "https://www.saucedemo.com/checkout-complete.html"
 
     def __init__(self, page: Page):
-        self.__page = page
+        super().__init__(page)
         self.__complete_header = page.locator(".complete-header").describe("Thank You Header")
         self.__back_home_button = page.locator("[data-test='back-to-products']").describe("Back Home Button")
         self.__menu_button = page.locator("#react-burger-menu-btn").describe("Menu Button")
@@ -19,10 +21,10 @@ class CheckoutCompletePage:
     # Click the 'Back Home' button to return to the Inventory page.
     def return_to_inventory(self):
         with allure.step("Click on 'Back Home' button"):
-            self.__back_home_button.click()
+            self.click_element(self.__back_home_button)
 
     # Open the side menu and click on the Logout link to log out.
     def logout(self):
         with allure.step("Log out of the system"):
-            self.__menu_button.click()
-            self.__logout_link.click()
+            self.click_element(self.__menu_button)
+            self.click_element(self.__logout_link)

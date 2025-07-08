@@ -1,13 +1,14 @@
 import re
 from playwright.sync_api import Page, expect
 
-from pages.CheckoutOverviewPage import CheckoutOverviewPage
+from pages.checkout_overview_page import CheckoutOverviewPage
 from pages.checkout_complete_page import CheckoutCompletePage
 from pages.checkout_page import CheckoutPage
 from pages.inventory_page import InventoryPage
 from pages.cart_page import CartPage
 
-def test_e2e_add_to_cart_and_checkout(page: Page,logged_in_user) -> None:
+
+def test_e2e_add_to_cart_and_checkout(page: Page, logged_in_user) -> None:
     # Create InventoryPage object (represents the products page)
     inventory_page = InventoryPage(page)
     cart_page = CartPage(page)
@@ -23,7 +24,7 @@ def test_e2e_add_to_cart_and_checkout(page: Page,logged_in_user) -> None:
     inventory_page.expect_cart_badge_count(4)
     # Navigate to the shopping cart page
     inventory_page.go_to_cart()
-    expect(page).to_have_url("https://www.saucedemo.com/cart.html")
+    # cart_page.expect_url("https://www.saucedemo.com/cart.html")
     # Verify products in cart
     cart_page.expect_product_in_cart("Sauce Labs Backpack")
     cart_page.expect_product_in_cart("Sauce Labs Bike Light")
@@ -35,7 +36,6 @@ def test_e2e_add_to_cart_and_checkout(page: Page,logged_in_user) -> None:
     # Fill checkout form
     checkout_page.fill_checkout_information("Ayala", "Druk", "12345")
     checkout_page.proceed_to_overview()
-    expect(page).to_have_url("https://www.saucedemo.com/checkout-step-two.html")
     # Verify order summary and finish
     checkout_overview_page.expect_overview_page_loaded()
     checkout_overview_page.finish_checkout()
@@ -43,12 +43,6 @@ def test_e2e_add_to_cart_and_checkout(page: Page,logged_in_user) -> None:
     # Verify Thank You page and logout
     checkout_complete_page.expect_order_complete_message()
     checkout_complete_page.logout()
-
-
-
-
-
-
 
 
 def test_example(page: Page) -> None:

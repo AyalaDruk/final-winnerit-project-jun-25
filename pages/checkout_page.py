@@ -16,8 +16,8 @@ class CheckoutPage(BasePage):
     def fill_checkout_information(self, first_name: str, last_name: str, postal_code: str):
         with allure.step(f"Fill checkout information: {first_name} {last_name}, Postal Code: {postal_code}"):
             self.fill_text(self.__first_name_field, first_name)
-            self.fill_text(self.__last_name_field.fill, last_name)
-            self.fill_text(self.__postal_code_field.fill, postal_code)
+            self.fill_text(self.__last_name_field, last_name)
+            self.fill_text(self.__postal_code_field, postal_code)
 
             # Click the 'Continue' button to proceed to the Checkout Overview page.
 

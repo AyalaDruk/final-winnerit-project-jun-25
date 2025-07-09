@@ -16,7 +16,7 @@ class BasePage:
 
     def expect_url(self, expected_url: str):
         with allure.step(f"Verify page URL is '{expected_url}'"):
-         self.expect_url(expected_url)
+         expect(self.page).to_have_url(expected_url)
 
 
     def click_element(self, locator):

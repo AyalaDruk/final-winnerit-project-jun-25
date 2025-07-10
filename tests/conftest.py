@@ -60,5 +60,4 @@ def fill_checkout_and_proceed(all_pages):
         checkout_page.fill_checkout_information(first_name, last_name, zip_code)
         checkout_page.proceed_to_overview()
         overview_page.expect_overview_page_loaded()
-
     return fill

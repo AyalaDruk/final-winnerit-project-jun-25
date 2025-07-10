@@ -1,0 +1,15 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","9654","test_login_performance_glitch_user_success[chromium]","tests.ui","Thu Jul 10 21:47:40 GMT 2025","passed","Thu Jul 10 21:47:50 GMT 2025","","test_login_positive","",""
+"","2170","test_login_invalid_username[chromium]","tests.ui","Thu Jul 10 21:47:27 GMT 2025","passed","Thu Jul 10 21:47:29 GMT 2025","","test_login_negative","",""
+"","3610","test_login_standard_user_success[chromium]","tests.ui","Thu Jul 10 21:47:32 GMT 2025","passed","Thu Jul 10 21:47:36 GMT 2025","","test_login_positive","",""
+"
+        End-to-End test: Add multiple items to the cart and complete checkout.
+     ","6939","test_e2e_add_to_cart_and_checkout[chromium]","tests.ui","Thu Jul 10 21:47:04 GMT 2025","passed","Thu Jul 10 21:47:11 GMT 2025","","test_e2e_buy_items","",""
+"","3512","test_login_problem_user_success[chromium]","tests.ui","Thu Jul 10 21:47:36 GMT 2025","passed","Thu Jul 10 21:47:40 GMT 2025","","test_login_positive","",""
+"
+     End-to-End test: Add multiple items to cart, remove one, and complete checkout
+     ","6911","test_e2e_remove_item_and_checkout[chromium]","tests.ui","Thu Jul 10 21:47:15 GMT 2025","passed","Thu Jul 10 21:47:22 GMT 2025","","test_e2e_remove_item","",""
+"","2295","test_login_empty_username_and_password[chromium--secret_sauce-Epic sadface: Username is required]","tests.ui","Thu Jul 10 21:47:30 GMT 2025","passed","Thu Jul 10 21:47:32 GMT 2025","","test_login_negative","",""
+"","3405","test_login_visual_user_success[chromium]","tests.ui","Thu Jul 10 21:47:50 GMT 2025","passed","Thu Jul 10 21:47:53 GMT 2025","","test_login_positive","",""
+"","4246","test_login_locked_out_user[chromium]","tests.ui","Thu Jul 10 21:47:22 GMT 2025","passed","Thu Jul 10 21:47:26 GMT 2025","","test_login_negative","",""
+"","3611","test_login_empty_username_and_password[chromium-standard_user--Epic sadface: Password is required]","tests.ui","Thu Jul 10 21:47:54 GMT 2025","passed","Thu Jul 10 21:47:57 GMT 2025","","test_login_negative","",""

@@ -8,17 +8,8 @@ from pages.checkout_page import CheckoutPage
 from pages.inventory_page import InventoryPage
 from pages.login_page import LoginPage
 
-import allure
 
-class DummyStep:
-    def __init__(self, *args, **kwargs):
-        pass
-    def __enter__(self):
-        return self
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        pass
 
-allure.step = DummyStep
 
 
 @pytest.fixture
@@ -57,3 +48,17 @@ def all_pages(page: Page):
         checkout_overview_page,
         checkout_complete_page
     )
+
+@pytest.fixture
+def fill_checkout_and_proceed(all_pages):
+    """
+    Fixture that fills the checkout form and navigates to the overview page.
+    """
+    _, _, checkout_page, overview_page, _ = all_pages  # Unpack only needed pages
+
+    def fill(first_name: str, last_name: str, zip_code: str):
+        checkout_page.fill_checkout_information(first_name, last_name, zip_code)
+        checkout_page.proceed_to_overview()
+        overview_page.expect_overview_page_loaded()
+
+    return fill

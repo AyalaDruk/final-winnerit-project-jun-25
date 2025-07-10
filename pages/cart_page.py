@@ -12,10 +12,12 @@ class CartPage(BasePage):
         self.__checkout_button = self.page.locator("[data-test='checkout']").describe("Checkout Button")
 
     # Verify that a specific product is present in the cart
-    def expect_product_in_cart(self, product_name: str):
-        with allure.step(f"Verify that product '{product_name}' exists in the cart"):
-            product_locator = self.page.locator(f".cart_item:has-text('{product_name}')")
-            expect(product_locator).to_be_visible()
+
+    def expect_products_in_cart(self, product_names: list[str]):
+            with allure.step(f"Verify products in cart: {product_names}"):
+                for product_name in product_names:
+                    product_locator = self.page.locator(f".cart_item:has-text('{product_name}')")
+                    expect(product_locator).to_be_visible()
 
             # Remove a specific product from the cart
     def remove_product_from_cart(self, product_name: str):

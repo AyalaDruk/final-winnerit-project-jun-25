@@ -1,6 +1,7 @@
 import pytest
 from  playwright.sync_api import Page
 
+from api_requests.users_request_generator import UsersRequestGenerator
 from pages.cart_page import CartPage
 from pages.checkout_complete_page import CheckoutCompletePage
 from pages.checkout_overview_page import CheckoutOverviewPage
@@ -51,9 +52,9 @@ def all_pages(page: Page):
 
 @pytest.fixture
 def fill_checkout_and_proceed(all_pages):
-    """
-    Fixture that fills the checkout form and navigates to the overview page.
-    """
+
+    #Fixture that fills the checkout form and navigates to the overview page.
+
     _, _, checkout_page, overview_page, _ = all_pages  # Unpack only needed pages
 
     def fill(first_name: str, last_name: str, zip_code: str):
@@ -61,3 +62,8 @@ def fill_checkout_and_proceed(all_pages):
         checkout_page.proceed_to_overview()
         overview_page.expect_overview_page_loaded()
     return fill
+
+@pytest.fixture
+def users_api():
+   # Fixture to initialize UsersRequestGenerator for API tests.
+    return UsersRequestGenerator()

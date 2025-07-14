@@ -5,7 +5,7 @@ from assertpy import assert_that
 
 
 @pytest.mark.api
-def test_get_all_users(users_api):
+def test_get_users_page_1(users_api):
     # Send GET request to fetch all users on page 1
     response=users_api.list_users(page=1)
     # Hard validation: check HTTP status code

@@ -23,6 +23,9 @@ class RequestGenerator:
     def delete(self, endpoint: str) -> Response:
         return requests.delete(f"{self.__base_url}{endpoint}", headers=self.__headers)
 
+    def patch(self, endpoint: str, data: dict) -> Response:
+        return requests.patch(f"{self.__base_url}{endpoint}", json=data, headers=self.__headers)
+
     def validate_status_code(self, response: Response, expected_status_code: int):
         assert response.status_code == expected_status_code
 

@@ -33,3 +33,7 @@ class RequestGenerator:
             if expected_value is not None:
                 actual_value = json_obj[key]
                 assert actual_value == expected_value
+
+    # Validate that the response body is empty.
+    def validate_empty_response(self, response: Response):
+        assert response.text == ""

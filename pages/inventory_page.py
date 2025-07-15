@@ -4,6 +4,8 @@ import allure
 
 
 class InventoryPage(BasePage):
+    inventory_url = "https://www.saucedemo.com/inventory.html"
+
     def __init__(self, page: Page):
         super().__init__(page)
         self.__cart_badge = self.page.locator("[data-test='shopping-cart-badge']").describe("Cart Badge")

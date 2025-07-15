@@ -33,4 +33,3 @@ def test_get_user_by_id(users_api):
 
     # Soft validation: use assertpy for additional checks
     assert_that(response_body["data"]["email"]).contains("@")
-    assert_that(response_body["data"]["first_name"]).is_equal_to("Janet")

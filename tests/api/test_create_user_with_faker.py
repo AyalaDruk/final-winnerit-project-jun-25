@@ -1,15 +1,18 @@
 import pytest
 from assertpy import assert_that
+from faker import Faker
+
+fake = Faker()
 
 
 @pytest.mark.api
-def test_create_user(users_api):
-    # Verify that a new user can be created via POST /users.
+def test_create_user_with_faker(users_api):
+    #   Verify POST /users creates a user with random data and returns id and createdAt.
 
-    # Payload for creating user
+    # Generate random name and job using Faker
     payload = {
-        "name": "morpheus",
-        "job": "leader"
+        "name": fake.name(),
+        "job": fake.job()
     }
 
     response = users_api.create_user(payload)
@@ -21,12 +24,11 @@ def test_create_user(users_api):
     users_api.validate_json_key_values(
         response_body,
         {
-            "name": "morpheus",
-            "job": "leader",
+            "name": payload["name"],
+            "job": payload["job"],
             "id": None,
             "createdAt": None
         }
     )
-
     assert_that(response_body["id"]).is_not_empty()
     assert_that(response_body["createdAt"]).is_not_empty()

@@ -1,8 +1,9 @@
 import pytest
 
+
 @pytest.mark.api
 def test_login_success(users_api):
-   # Verify successful login returns token.
+    # Verify successful login returns token.
 
     payload = {
         "email": "eve.holt@reqres.in",

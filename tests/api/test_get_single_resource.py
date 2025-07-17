@@ -24,7 +24,6 @@ def test_get_single_resource(users_api):
             }
         }
     )
-    #Validate  with assertpy
+    # Validate  with assertpy
     support_data = response_body["support"]
     assert_that(support_data).contains_key("url", "text")
-

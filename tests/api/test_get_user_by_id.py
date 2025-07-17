@@ -1,9 +1,9 @@
 import pytest
 from assertpy import assert_that
 
+
 @pytest.mark.api
 def test_get_user_by_id(users_api):
-
     response = users_api.get_user(2)
 
     # Hard validation: check status code

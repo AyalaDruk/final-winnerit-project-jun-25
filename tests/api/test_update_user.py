@@ -1,9 +1,9 @@
 import pytest
 
+
 @pytest.mark.api
 def test_update_user(users_api):
-
-   # Verify that updating a user returns the updated data and updatedAt timestamp.
+    # Verify that updating a user returns the updated data and updatedAt timestamp.
 
     payload = {
         "name": "morpheus",

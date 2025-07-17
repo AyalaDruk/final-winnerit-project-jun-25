@@ -5,7 +5,6 @@ import pytest
 
 @pytest.mark.api
 def test_update_user_not_found(users_api):
-    
     # Update non-existent user returns 200 (reqres mock API)
 
     payload = {

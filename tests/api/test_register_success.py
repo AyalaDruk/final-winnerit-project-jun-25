@@ -1,9 +1,9 @@
 import pytest
 
+
 @pytest.mark.api
 def test_register_success(users_api):
-
-    #Verify successful registration returns id and token.
+    # Verify successful registration returns id and token.
 
     payload = {
         "email": "eve.holt@reqres.in",
@@ -25,4 +25,3 @@ def test_register_success(users_api):
             "token": "QpwL5tke4Pnpja7X4"
         }
     )
-

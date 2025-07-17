@@ -1,15 +1,12 @@
-
 import pytest
-from playwright.sync_api import Page, expect
 
 
 @pytest.mark.ui
 @pytest.mark.e2e
 @pytest.mark.positive
-def test_e2e_add_to_cart_and_checkout(all_pages, logged_in_user,fill_checkout_and_proceed) -> None:
-    """
-        End-to-End test: Add multiple items to the cart and complete checkout.
-     """
+def test_e2e_add_to_cart_and_checkout(all_pages, logged_in_user, fill_checkout_and_proceed) -> None:
+    #  End-to-End test: Add multiple items to the cart and complete checkout.
+
     # Create InventoryPage object (represents the products page)
     inventory_page, cart_page, checkout_page, overview_page, complete_page = all_pages
 
@@ -43,13 +40,9 @@ def test_e2e_add_to_cart_and_checkout(all_pages, logged_in_user,fill_checkout_an
 
     # Complete order and logout
     # Finish checkout
-    overview_page.verify_cart_subtotal_simple()
+    overview_page.verify_cart_totals()
     overview_page.finish_checkout()
 
     # Verify Thank You page and logout
     complete_page.expect_order_complete_message()
     complete_page.logout()
-
-
-
-

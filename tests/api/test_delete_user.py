@@ -11,5 +11,3 @@ def test_delete_user(users_api):
 
     # Validate response body is empty
     users_api.validate_empty_response(response)
-
-

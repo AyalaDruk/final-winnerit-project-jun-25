@@ -1,10 +1,9 @@
 import pytest
 
 
-
 @pytest.mark.api
 def test_register_failure_missing_password(users_api):
-    #Verify registration fails when password is missing.
+    # Verify registration fails when password is missing.
     payload = {
         "email": "sydney@fife"
     }

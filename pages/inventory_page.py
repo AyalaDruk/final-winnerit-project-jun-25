@@ -11,8 +11,8 @@ class InventoryPage(BasePage):
         self.__cart_badge = self.page.locator("[data-test='shopping-cart-badge']").describe("Cart Badge")
         self.__cart_link = self.page.locator("[data-test='shopping-cart-link']").describe("Cart Link")
 
-
         # Add multiple products to the cart
+
     def add_items_to_cart(self, product_ids: list[str]):
         with allure.step(f"Add products to the cart: {product_ids}"):
             for product_id in product_ids:

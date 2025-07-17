@@ -3,10 +3,10 @@ import pytest
 
 @pytest.mark.api
 def test_patch_user(users_api):
-   # Verify that patching a user returns updated data and updatedAt timestamp.
+    # Verify that patching a user returns updated data and updatedAt timestamp.
 
     payload = {
-        "job":  "zion resident"
+        "job": "zion resident"
     }
 
     response = users_api.patch("/users/2", payload)

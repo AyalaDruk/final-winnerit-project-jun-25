@@ -1,10 +1,10 @@
 import pytest
 from assertpy import assert_that
 
+
 @pytest.mark.api
 def test_get_users_page_2(users_api):
-
-    #Verify that the API returns users for page 2.
+    # Verify that the API returns users for page 2.
 
     # Send GET request for page 2
     response = users_api.list_users(page=2)

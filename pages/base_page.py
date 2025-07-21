@@ -2,8 +2,7 @@ from playwright.sync_api import Page, expect
 import allure
 
 
-# BasePage: Provides common reusable methods for all page objects
-# Includes navigation, assertions, and basic user interactions
+# BasePage: Provides shared methods for all pages (navigation, assertions, interactions)
 class BasePage:
 
     def __init__(self, page: Page):
